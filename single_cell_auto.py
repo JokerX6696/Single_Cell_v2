@@ -12,7 +12,7 @@ def diff_anno_run(
 ):
     for cell_type in cell_types:
         with open(f'{out}/cmd_{cell_type}-{treat}-vs-{control}.diff.sh',"w") as f:
-            f.write(f"""
+            f.write(f"""set -e
 module load OESingleCell/3.0.d
 Rscript  /public/scRNA_works/pipeline/oesinglecell3/exec/sctool  \\
 -i {input_rds}     \\
