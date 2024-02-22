@@ -1,3 +1,4 @@
+#!/data/software/miniconda/envs/snakemake/bin/python
 import yaml
 import os, sys
 import single_cell_auto
