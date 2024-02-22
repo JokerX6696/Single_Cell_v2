@@ -19,12 +19,22 @@ class Project:
             else:
                 setattr(self, key, value)
 ### yaml 转化为类属性
-yaml_data = read_yaml_file(config)         
+yaml_data = read_yaml_file(config)          
 # 创建类的实例，并将字典中的键值对应于类的属性
 p = Project(**yaml_data)
-### 
+### run 
 
 if p.diff_anno.run:
-    single_cell_auto.diff_anno_run()
+    single_cell_auto.diff_anno_run(
+        input_rds = p.diff_anno.input_rds,
+        cell_types = p.diff_anno.cell_types,
+        analysis_type = p.diff_anno.analysis_type,
+        treat = p.diff_anno.analysis_type,
+        control = p.diff_anno.analysis_type,
+        fc = p.diff_anno.analysis_type,
+        p = p.diff_anno.analysis_type,
+        vs_type = p.diff_anno.analysis_type,
+        anno = p.diff_anno.analysis_type  
+    )
         
     
