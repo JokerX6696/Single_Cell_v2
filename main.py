@@ -1,9 +1,12 @@
 import yaml
+import os, sys
 import single_cell_auto
 ##  根据需求生成对应的脚本
-
-config='D:/desk/github/Single_Cell_v2/test.yaml'
-
+# 获取命令行参数
+args = sys.argv[1:]
+# config='D:/desk/github/Single_Cell_v2/test.yaml'
+config = args[0]
+config_path = os.path.dirname(config)  # 生成文件与 config 文件同目录
 # 读取 YAML 文件
 def read_yaml_file(file_path):
     with open(file_path, 'r') as file:
@@ -29,12 +32,13 @@ if p.diff_anno.run:
         input_rds = p.diff_anno.input_rds,
         cell_types = p.diff_anno.cell_types,
         analysis_type = p.diff_anno.analysis_type,
-        treat = p.diff_anno.analysis_type,
-        control = p.diff_anno.analysis_type,
-        fc = p.diff_anno.analysis_type,
-        p = p.diff_anno.analysis_type,
-        vs_type = p.diff_anno.analysis_type,
-        anno = p.diff_anno.analysis_type  
+        treat = p.diff_anno.treat,
+        control = p.diff_anno.control,
+        fc = p.diff_anno.fc,
+        p = p.diff_anno.p,
+        vs_type = p.diff_anno.vs_type,
+        anno = p.diff_anno.anno,
+        out = config_path  
     )
         
     
