@@ -2,7 +2,7 @@ import yaml
 import single_cell_auto
 ##  根据需求生成对应的脚本
 
-config='D:/desk/github/single_cell_auto/test.yaml'
+config='D:/desk/github/Single_Cell_v2/test.yaml'
 
 # 读取 YAML 文件
 def read_yaml_file(file_path):
