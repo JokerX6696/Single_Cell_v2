@@ -7,7 +7,7 @@ import single_cell_auto
 args = sys.argv[1:]
 # config='D:/desk/github/Single_Cell_v2/test.yaml'
 config = args[0]
-config_path = os.path.dirname(config)  # 生成文件与 config 文件同目录
+config_path = os.path.dirname(os.path.abspath(config))  # 生成文件与 config 文件同目录
 # 读取 YAML 文件
 def read_yaml_file(file_path):
     with open(file_path, 'r') as file:
@@ -23,11 +23,10 @@ class Project:
             else:
                 setattr(self, key, value)
 ### yaml 转化为类属性
-yaml_data = read_yaml_file(config)          
+yaml_data = read_yaml_file(config)
 # 创建类的实例，并将字典中的键值对应于类的属性
 p = Project(**yaml_data)
-### run 
-
+### run
 if p.diff_anno.run:
     single_cell_auto.diff_anno_run(
         input_rds = p.diff_anno.input_rds,
@@ -39,7 +38,5 @@ if p.diff_anno.run:
         p = p.diff_anno.p,
         vs_type = p.diff_anno.vs_type,
         anno = p.diff_anno.anno,
-        out = config_path  
+        out = config_path
     )
-        
-    
