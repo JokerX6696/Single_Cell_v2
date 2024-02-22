@@ -21,7 +21,7 @@ Rscript  /public/scRNA_works/pipeline/oesinglecell3/exec/sctool  \\
 --assay RNA     \\
 --dataslot data,counts     \\
 -j 10  \\
---predicate \"{analysis_type} %in% c(\'{cell_type}\')\" \\
+--predicate \\"{analysis_type} %in% c(\\'{cell_type}\\')\\" \\
 diffexp     \\
 -c {vs_type}:{treat}:{control}     \\
 -k {fc}     \\
@@ -44,7 +44,7 @@ Rscript  /public/scRNA_works/pipeline/oesinglecell3/exec/scVis \\
 -t 10 \\
 --assay RNA \\
 --slot data,scale.data \\
---predicate \"{analysis_type} %in% c(\'{cell_type}\') & {vs_type} %in% c(\'{treat}\',\'{control}\')\" \\
+--predicate \\"{analysis_type} %in% c(\\'{cell_type}\\') & {vs_type} %in% c(\\'{treat}\\',\\'{control}\\')\\" \\
 diff_heatmap \\
 -d ./{cell_type}-Diffexp/{treat}-vs-{control}/{vs_type}_{treat}-vs-{control}-diff-pval-{p}-FC-{fc}.xls \\
 -n 20 \\
