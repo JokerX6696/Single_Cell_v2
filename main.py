@@ -10,7 +10,7 @@ config = args[0]
 config_path = os.path.dirname(os.path.abspath(config))  # 生成文件与 config 文件同目录
 # 读取 YAML 文件
 def read_yaml_file(file_path):
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r',encoding='utf-8') as file:
         yaml_data = yaml.safe_load(file)
     return yaml_data
 
@@ -26,17 +26,8 @@ class Project:
 yaml_data = read_yaml_file(config)
 # 创建类的实例，并将字典中的键值对应于类的属性
 p = Project(**yaml_data)
+p.out = config_path
+
 ### run
 if p.diff_anno.run:
-    single_cell_auto.diff_anno_run(
-        input_rds = p.diff_anno.input_rds,
-        cell_types = p.diff_anno.cell_types,
-        analysis_type = p.diff_anno.analysis_type,
-        treat = p.diff_anno.treat,
-        control = p.diff_anno.control,
-        fc = p.diff_anno.fc,
-        p = p.diff_anno.p,
-        vs_type = p.diff_anno.vs_type,
-        anno = p.diff_anno.anno,
-        out = config_path
-    )
+    single_cell_auto.diff_anno_run(obj=p)

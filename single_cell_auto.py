@@ -1,15 +1,15 @@
-def diff_anno_run(
-  input_rds,
-  cell_types,
-  analysis_type,
-  treat,
-  control,
-  fc,
-  p,
-  vs_type,
-  anno,
-  out
-):
+def diff_anno_run(obj):
+    input_rds = obj.diff_anno.input_rds
+    cell_types = obj.diff_anno.cell_types
+    analysis_type = obj.diff_anno.analysis_type
+    treat = obj.diff_anno.treat
+    control = obj.diff_anno.control
+    fc = obj.diff_anno.fc
+    p = obj.diff_anno.p
+    vs_type = obj.diff_anno.vs_type
+    anno = obj.diff_anno.anno
+    out = obj.out
+
     for cell_type in cell_types:
         with open(f'{out}/cmd_{cell_type}-{treat}-vs-{control}.diff.sh',"w") as f:
             f.write(f"""set -e
