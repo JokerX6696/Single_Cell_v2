@@ -34,4 +34,5 @@ if p.diff_anno.run:
     single_cell_auto.diff_anno_run(obj=p)
 
 if p.cellchat.run:
-    
+    single_cell_auto.cellchat_run(obj=p)
+

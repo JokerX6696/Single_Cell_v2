@@ -61,3 +61,27 @@ perl /gpfs/oe-scrna/ziqingzhen/script/enrichment/enrich_go_kegg.pl -infile {cell
 -outdir {cell_type}-Diffexp/{treat}-vs-{control}/enrichment  \\
 -shelldir {cell_type}-Diffexp/{treat}-vs-{control}/enrichment_sh
                     """)
+            
+
+def cellchat_run(obj):
+    rds = obj.cellchat.input_rds
+    col = obj.cellchat.col
+    group = obj.cellchat.group
+    treat = obj.cellchat.treat
+    control = obj.cellchat.control
+    fc = obj.cellchat.fc
+    p = obj.cellchat.p
+    vs_type = obj.cellchat.vs_type
+    anno = obj.cellchat.anno
+    out = obj.cellchat.out
+
+    for cell_type in cell_types:
+        with open(out,"w") as f:
+            f.write(f"""set -e
+module load OESingleCell/3.0.d
+Rscript /public/scRNA_works/pipeline/scRNA-seq_further_analysis/CellChat_v1.6.1.R \\
+                    """)
+        if group:
+            pass
+        else:
+            pass
