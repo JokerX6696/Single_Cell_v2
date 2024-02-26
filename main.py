@@ -29,5 +29,9 @@ p = Project(**yaml_data)
 p.out = config_path
 
 ### run
+# 差异 富集
 if p.diff_anno.run:
     single_cell_auto.diff_anno_run(obj=p)
+
+if p.cellchat.run:
+    
