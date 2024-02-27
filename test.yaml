@@ -26,5 +26,5 @@ cellchat:
   group_list: ['a:b','c:d']  # 分组详细
   part: True   # 是否需要根据 metadata 截取部分细胞
   part_name: clusters # 根据metadata 某一列去截取细胞类型  eg： new_celltype
-  part_list: []  # 若填写为 ["1,2,3,4,5"],则是从总数据提取出 1 2 3 4 5 进行后续分析，若是填写为 [1,2,3,4,5]，则是 1，2，3，4，5 分别进行一次通讯分析
+  part_list: [1,2,3,4]  # 若填写为 ["1,2,3,4,5"],则是从总数据提取出 1 2 3 4 5 进行后续分析，若是填写为 [1,2,3,4,5]，则是 1，2，3，4，5 分别进行一次通讯分析
   species: mouse  # human 
