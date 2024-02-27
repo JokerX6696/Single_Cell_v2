@@ -32,7 +32,7 @@ p.out = config_path
 # 差异 富集
 if p.diff_anno.run:
     single_cell_auto.diff_anno_run(obj=p)
-
+# cellchat
 if p.cellchat.run:
     single_cell_auto.cellchat_run(obj=p)
 
