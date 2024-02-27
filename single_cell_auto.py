@@ -78,7 +78,7 @@ def cellchat_run(obj):
     
 
     for p in part_list:
-        script_out = "cmd_cellchat_" + part_name + "_" + p + ".sh"
+        script_out = "cmd_cellchat_" + part_name + "_" + str(p) + ".sh"
         with open(script_out,"w") as f:
             f.write(f"""set -e
 module load OESingleCell/3.0.d
