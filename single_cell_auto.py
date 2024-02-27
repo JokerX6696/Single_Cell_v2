@@ -72,24 +72,27 @@ def cellchat_run(obj):
     group_list = obj.cellchat.group_list
     out = obj.cellchat.out
     part = obj.cellchat.part
+    part_name = obj.cellchat.part_name
+    part_list = obj.cellchat.part_list
 
     
 
-
-    with open(out,"w") as f:
-        f.write(f"""set -e
+    for p in part_list:
+        script_out = "cmd_cellchat_" + part_name + "_" + p + ".sh"
+        with open(script_out,"w") as f:
+            f.write(f"""set -e
 module load OESingleCell/3.0.d
 Rscript /public/scRNA_works/pipeline/scRNA-seq_further_analysis/CellChat_v1.6.1.R \\
 -i {rds} \\
 -f rds \\
 -s {species}  \\
 -c {col} \\""")
-    if group_need:
-        group_vs = "+".join(group_list)
-        f.write(f"-g {group_type}  \\\n-d {group_vs} \\")
-    if part != 'None':
-        f.write(f"-q clusters \\\n-u 1,2,5\\")
-    f.write(f"-o {out}\n")
+        if group_need:
+            group_vs = "+".join(group_list)
+            f.write(f"-g {group_type}  \\\n-d {group_vs} \\")
+        if part:
+            f.write(f"-q {part_name} \\\n-u {p}\\")
+        f.write(f"-o {out}\n")
 
 
 
