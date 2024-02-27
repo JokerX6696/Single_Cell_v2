@@ -42,13 +42,13 @@ Rscript  /public/scRNA_works/pipeline/oesinglecell3/exec/scVis \\
 -i {input_rds}  \\
 -f h5seurat \\
 -o ./{cell_type}-Diffexp/{treat}-vs-{control}  \\
--t {top} \\
+-t 10 \\
 --assay RNA \\
 --slot data,scale.data \\
 --predicate "{analysis_type} %in% c(\\'{cell_type}\\') & {vs_type} %in% c(\\'{treat}\\',\\'{control}\\')" \\
 diff_heatmap \\
 -d ./{cell_type}-Diffexp/{treat}-vs-{control}/{vs_type}_{treat}-vs-{control}-diff-pval-{p}-FC-{fc}.xls \\
--n 20 \\
+-n {top} \\
 -g {vs_type} \\
 --group_colors customecol2 \\
 --sample_ratio 0.8
