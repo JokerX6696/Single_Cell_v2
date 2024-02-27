@@ -74,12 +74,12 @@ def cellchat_run(obj):
     part = obj.cellchat.part
     part_name = obj.cellchat.part_name
     part_list = obj.cellchat.part_list
-
+    out_sc = obj.out
     
 
     for p in part_list:
         script_out = "cmd_cellchat_" + part_name + "_" + str(p) + ".sh"
-        with open(script_out,"w") as f:
+        with open(f"{out_sc}/{script_out}","w") as f:
             f.write(f"""set -e
 module load OESingleCell/3.0.d
 Rscript /public/scRNA_works/pipeline/scRNA-seq_further_analysis/CellChat_v1.6.1.R \\
