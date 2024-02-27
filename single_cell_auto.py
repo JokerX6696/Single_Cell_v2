@@ -87,12 +87,12 @@ Rscript /public/scRNA_works/pipeline/scRNA-seq_further_analysis/CellChat_v1.6.1.
 -f rds \\
 -s {species}  \\
 -c {col} \\""")
-        if group_need:
-            group_vs = "+".join(group_list)
-            f.write(f"-g {group_type}  \\\n-d {group_vs} \\")
-        if part:
-            f.write(f"-q {part_name} \\\n-u {p}\\")
-        f.write(f"-o {out}\n")
+            if group_need:
+                group_vs = "+".join(group_list)
+                f.write(f"-g {group_type}  \\\n-d {group_vs} \\")
+            if part:
+                f.write(f"-q {part_name} \\\n-u {p}\\")
+            f.write(f"-o {out}\n")
 
 
 
