@@ -13,11 +13,12 @@ diff_anno:
   #anno: "/data/database/cellranger-refdata/refdata-gex-mm10-2020-A/annotation/"   ##mouse
   anno: "/data/database/cellranger-refdata/refdata-gex-GRCh38-2020-A/annotation/"   #human
   #anno: "/data/database/cellranger-refdata/refdata-mRatBN7/annotation/"  # rat
+  top: 10
 
 
 # cellchat
 cellchat:
-  run: True
+  run: False
   rds: test.rds
   out: ./cellchat
   col: new_celltype  #  用来进行通讯分析的metadata列名

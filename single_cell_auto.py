@@ -8,6 +8,7 @@ def diff_anno_run(obj):
     p = obj.diff_anno.p
     vs_type = obj.diff_anno.vs_type
     anno = obj.diff_anno.anno
+    top = obj.diff_anno.top
     out = obj.out
 
     for cell_type in cell_types:
@@ -41,7 +42,7 @@ Rscript  /public/scRNA_works/pipeline/oesinglecell3/exec/scVis \\
 -i {input_rds}  \\
 -f h5seurat \\
 -o ./{cell_type}-Diffexp/{treat}-vs-{control}  \\
--t 10 \\
+-t {top} \\
 --assay RNA \\
 --slot data,scale.data \\
 --predicate "{analysis_type} %in% c(\\'{cell_type}\\') & {vs_type} %in% c(\\'{treat}\\',\\'{control}\\')" \\
@@ -86,12 +87,13 @@ Rscript /public/scRNA_works/pipeline/scRNA-seq_further_analysis/CellChat_v1.6.1.
 -i {rds} \\
 -f rds \\
 -s {species}  \\
--c {col} \\""")
+-c {col} \\
+""")
             if group_need:
                 group_vs = "+".join(group_list)
-                f.write(f"-g {group_type}  \\\n-d {group_vs} \\")
+                f.write(f"-g {group_type}  \\\n-d {group_vs} \\\n")
             if part:
-                f.write(f"-q {part_name} \\\n-u {p}\\")
+                f.write(f"-q {part_name} \\\n-u {p} \\\n")
             f.write(f"-o {out}\n")
 
 
