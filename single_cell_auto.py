@@ -64,7 +64,7 @@ perl /gpfs/oe-scrna/ziqingzhen/script/enrichment/enrich_go_kegg.pl -infile {cell
             
 
 def cellchat_run(obj):
-    rds = obj.cellchat.input_rds
+    rds = obj.cellchat.rds
     species=obj.cellchat.species
     col = obj.cellchat.col  # 用来进行通讯分析的metadata列名
     group_need = obj.cellchat.group_need

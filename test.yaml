@@ -22,9 +22,8 @@ cellchat:
   out: ./cellchat
   col: new_celltype  #  用来进行通讯分析的metadata列名
   group_need: True   # 是否分组
-  group_type: group
+  group_type: group  # 按照哪一列分组
   group_list: ['a:b','c:d']  # 分组详细
-  group_type: group
   part: True   # 是否需要根据 metadata 截取部分细胞
   part_name: clusters # 根据metadata 某一列去截取细胞类型  eg： new_celltype
   part_list: []  # 若填写为 ["1,2,3,4,5"],则是从总数据提取出 1 2 3 4 5 进行后续分析，若是填写为 [1,2,3,4,5]，则是 1，2，3，4，5 分别进行一次通讯分析
