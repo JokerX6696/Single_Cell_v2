@@ -126,20 +126,19 @@ def modified_cell_type_run(obj):
         f.write(f"""set -e
 module purge && module load OESingleCell/3.0.d
 Rscript /public/scRNA_works/pipeline/oesinglecell3/exec/sctool \
--i {seurat} \
--f h5seurat \
--o {output} \
--d h5seurat \
---update {bl} \
---assay RNA \
---dataslot counts,data,scale.data  \
-changecelltype \
--c {newcelltype_file}\
--C {Modified_col} \
---palette customecol2 \
---reduct {reduct} \
+-i {seurat} \\
+-f h5seurat \\
+-o {output} \\
+-d h5seurat \\
+--update {bl} \\
+--assay RNA \\
+--dataslot counts,data,scale.data  \\
+changecelltype \\
+-c {newcelltype_file}\\
+-C {Modified_col} \\
+--palette customecol2 \\
+--reduct {reduct} \\
 -b F
-
                 """)
 
 def gsva_run(obj):
