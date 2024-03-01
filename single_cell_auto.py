@@ -125,7 +125,7 @@ def modified_cell_type_run(obj):
     with open(f'{out}/cmd_modified_cell_type.sh',"w") as f:
         f.write(f"""set -e
 module purge && module load OESingleCell/3.0.d
-Rscript /public/scRNA_works/pipeline/oesinglecell3/exec/sctool \
+Rscript /public/scRNA_works/pipeline/oesinglecell3/exec/sctool \\
 -i {seurat} \\
 -f h5seurat \\
 -o {output} \\
