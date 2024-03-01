@@ -142,7 +142,7 @@ Rscript /public/scRNA_works/pipeline/oesinglecell3/exec/sctool \\
 --assay RNA \\
 --dataslot counts,data,scale.data  \\
 changecelltype \\
--c {newcelltype_file}\\
+-c {newcelltype_file} \\
 -C {Modified_col} \\
 --palette customecol2 \\
 --reduct {reduct} \\
