@@ -5,8 +5,10 @@ modified_cell_type:
   updata: True
   output: newcelltype
   newcelltype_file: newcelltype.tsv 
+  newcelltype_file_type: tsv
   Modified_col: clusters
   reduct: umap
+
 # 差异分析 富集分析
 diff_anno:
   run: False
