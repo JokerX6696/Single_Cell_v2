@@ -1,4 +1,12 @@
-
+# 修改细胞类型
+modified_cell_type:
+  run: False
+  input : seurat.h5seurat
+  updata: True
+  output: newcelltype
+  newcelltype_file: newcelltype.tsv 
+  Modified_col: clusters
+  reduct: umap
 # 差异分析 富集分析
 diff_anno:
   run: False

@@ -110,5 +110,37 @@ Rscript /public/scRNA_works/pipeline/scRNA-seq_further_analysis/CellChat_v1.6.1.
                 f.write(f"-g {group_type}  \\\n-d {group_vs} \\\n")
             f.write(f"-o {out}\n")
 
+def modified_cell_type_run(obj):
+    out = obj.out
+    seurat = obj.modified_cell_type.input
+    output = obj.modified_cell_type.output
+    updata = obj.modified_cell_type.updata
+    if updata:
+        bl = 'T'
+    else:
+        bl = 'F'
+    newcelltype_file = obj.modified_cell_type.newcelltype_file
+    Modified_col = obj.modified_cell_type.Modified_col
+    reduct = obj.modified_cell_type.reduct
+    with open(f'{out}/cmd_modified_cell_type.sh',"w") as f:
+        f.write(f"""set -e
+module purge && module load OESingleCell/3.0.d
+Rscript /public/scRNA_works/pipeline/oesinglecell3/exec/sctool \
+-i {seurat} \
+-f h5seurat \
+-o {output} \
+-d h5seurat \
+--update {bl} \
+--assay RNA \
+--dataslot counts,data,scale.data  \
+changecelltype \
+-c {newcelltype_file}\
+-C {Modified_col} \
+--palette customecol2 \
+--reduct {reduct} \
+-b F
 
+                """)
 
+def gsva_run(obj):
+    pass
