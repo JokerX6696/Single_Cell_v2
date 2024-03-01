@@ -36,8 +36,8 @@ if p.diff_anno.run:
 if p.cellchat.run:
     single_cell_auto.cellchat_run(obj=p)
 # GSVA
-if p.gsva.run:
-    single_cell_auto.gsva_run(obj=p)
+# if p.gsva.run:
+#     single_cell_auto.gsva_run(obj=p)
 if p.modified_cell_type.run:
     single_cell_auto.modified_cell_type_run(obj=p)
 
