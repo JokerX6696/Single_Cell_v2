@@ -39,3 +39,7 @@ cellchat:
   part_name: clusters # 根据metadata 某一列去截取细胞类型  eg： new_celltype
   part_list: [1,2,3,4]  # 若填写为 ["1,2,3,4,5"],则是从总数据提取出 1 2 3 4 5 进行后续分析，若是填写为 [1,2,3,4,5]，则是 1，2，3，4，5 分别进行一次通讯分析
   species: mouse  # human 
+
+# gsva
+gsva:
+  run: False
