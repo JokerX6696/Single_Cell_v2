@@ -42,6 +42,7 @@ cellchat:
 
 # gsva
 gsva:
+  run: False
   step1: True
   run: False
   rds: rds/data_ob_v3.rds
@@ -55,7 +56,7 @@ gsva:
 
 # monocle2 拟时序
 monocle:
-  run: True
+  run: False
   seurat: seurat.h5seurat # 输入 seurat 文件
   out: monocle  # 结果输出目录
   var_gene: new_celltype # 高变基因选择
