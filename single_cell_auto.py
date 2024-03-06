@@ -184,6 +184,20 @@ Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \
 -S 10000  \
 -j 4 \
 -x  TRUE &
+
+Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \
+-i $rds \
+-f seurat   \
+-g $kegg  \
+-o  ./GSVA_Hallmakr  \
+-c  $num  \
+-k Poisson \
+-a  FALSE  \
+-s 2  \
+-S 10000  \
+-j 4 \
+-x  TRUE &
+
 wait
 # 2
 Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_pathway_diffxp.R  \
