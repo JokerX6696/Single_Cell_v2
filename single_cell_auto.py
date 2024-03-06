@@ -227,6 +227,7 @@ def monocle_run(obj):
     split_group = obj.monocle.split_group
     sel = obj.monocle.sel
     sel_clusters = obj.monocle.sel_clusters
+    fbl = obj.monocle.fbl
     outsc = obj.out
     sel_clusters = sel_clusters.replace("'","\\'")
 
@@ -247,7 +248,7 @@ Rscript /public/scRNA_works/pipeline/oesinglecell3/exec/sctool \\
 monocle \\
 -d {var_gene} \\
 -x 0.01 \\
--r 0.4 \\
+-r {fbl} \\
 -C {split_group} \\
 -s 1
 """)
