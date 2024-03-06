@@ -60,5 +60,5 @@ monocle:
   out: monocle  # 结果输出目录
   var_gene: new_celltype # 高变基因选择
   split_group: clusters,sampleid,group
-  sel: True  # 是否截取其中一部分细胞
+  sel: False  # 是否截取其中一部分细胞
   sel_clusters: new_celltype %in% c('B_cells','T_cells') # 截取方式 !!! 这里括号里务必使用单引号 且不需要反斜线！！！代码自己会处理
