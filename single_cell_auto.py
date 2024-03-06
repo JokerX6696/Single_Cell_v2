@@ -231,7 +231,7 @@ def monocle_run(obj):
     sel_clusters = sel_clusters.replace("'","\\'")
 
     with open(f"{outsc}/cmd_monocle.sh",'w')as f:
-        f.write(f"""
+        f.write(f"""set -e
 module load OESingleCell/3.0.d
 Rscript /public/scRNA_works/pipeline/oesinglecell3/exec/sctool \\
 -i {seurat}  \\
