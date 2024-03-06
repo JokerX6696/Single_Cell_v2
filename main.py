@@ -36,8 +36,11 @@ if p.diff_anno.run:
 if p.cellchat.run:
     single_cell_auto.cellchat_run(obj=p)
 # GSVA
-# if p.gsva.run:
-#     single_cell_auto.gsva_run(obj=p)
+if p.gsva.run:
+    single_cell_auto.gsva_run(obj=p)
+# 修改细胞类型
 if p.modified_cell_type.run:
     single_cell_auto.modified_cell_type_run(obj=p)
-
+# monocle
+if p.monocle.run:
+    single_cell_auto.monocle_run(obj=p)

@@ -219,3 +219,37 @@ Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_pathway_diffxp.R  \
 -o ./GSVA_KEGG
 """
 )
+        
+def monocle_run(obj):
+    seurat = obj.monocle.seurat
+    out = obj.monocle.out
+    var_gene = obj.monocle.var_gene
+    split_group = obj.monocle.split_group
+    sel = obj.monocle.sel
+    sel_clusters = obj.monocle.sel_clusters
+    outsc = obj.out
+    sel_clusters = sel_clusters.replace("'","\\'")
+
+    with open(f"{outsc}/cmd_monocle.sh",'w')as f:
+        f.write(f"""
+module load OESingleCell/3.0.d
+Rscript /public/scRNA_works/pipeline/oesinglecell3/exec/sctool \\
+-i {seurat}  \\
+-f h5seurat \\
+--assay RNA \\
+-o ./{out}/ \\
+-j 8 \\
+""")
+        if sel:
+                f.write(f"""--predicate   "{sel_clusters}" \\
+""")
+        f.write(f"""--update FALSE \\
+monocle \\
+-d {var_gene} \\
+-x 0.01 \\
+-r 0.4 \\
+-C {split_group} \\
+-s 1
+""")
+
+
