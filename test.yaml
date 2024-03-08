@@ -54,7 +54,7 @@ gsva:
   rds2: rds/data_ob_v3.rds
   cell_heatmap: False
 
-# monocle2 拟时序
+# monocle2 拟时序  该模块为第一步，第二步个性化较强 请手动做
 monocle:
   run: False
   seurat: seurat.h5seurat # 输入 seurat 文件
