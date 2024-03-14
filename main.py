@@ -1,7 +1,7 @@
 #!D:/Application/python/python.exe
 import yaml
 import os, sys
-import single_cell_auto
+import single_cell_auto  # 尝试更加模块化
 ##  根据需求生成对应的脚本
 # 获取命令行参数
 args = sys.argv[1:]
