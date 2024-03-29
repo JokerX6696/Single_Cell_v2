@@ -20,8 +20,8 @@ def scvelo_py_run(obj):
             os.system(cmd1)
         with open(f'{out}/cmd_velo.sh',"w") as f:
             f.write(f"""set -e
-module load git \\
-module load ./dev_fangying \\
+module load git 
+module load ./dev_fangying 
 sctool -i {seurat} -f h5seurat --assay {assay} -j {core} -o {output}  pyscvelo --loom_dir {loom_dir} --groupby {groupby} --reduction {reduction}
 
 """)
