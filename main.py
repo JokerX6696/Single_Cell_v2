@@ -43,3 +43,6 @@ if p.modified_cell_type.run:
 # monocle
 if p.monocle2.run:
     single_cell_auto.monocle2_run(obj=p)
+# scvelo
+if p.scvelo_py.run:
+    single_cell_auto.scvelo_py_run(obj=p)

@@ -55,7 +55,7 @@ gsva:
 
 # monocle2 拟时序  该模块为第一步，第二步个性化较强 请手动做
 monocle2:
-  run: True
+  run: False
   seurat: seurat.h5seurat # 输入 seurat 文件
   fbl: 0.4  # 分辨率
   out: monocle2  # 结果输出目录
@@ -63,3 +63,15 @@ monocle2:
   split_group: clusters,sampleid,group
   sel: False  # 是否截取其中一部分细胞
   sel_clusters: new_celltype %in% c('B_cells','T_cells') # 截取方式 !!! 这里括号里务必使用单引号 且不需要反斜线！！！代码自己会处理
+
+scvelo_py:
+  run: True
+  step1: False
+  step2: True
+  input_seurat: seurat.h5seurat
+  assay: RNA
+  core: 10
+  loom_dir: yourloomdir
+  groupby: clusters,new_celltype
+  reduction: umap
+  output: ./output
