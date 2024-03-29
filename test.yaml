@@ -65,7 +65,7 @@ monocle2:
   sel_clusters: new_celltype %in% c('B_cells','T_cells') # 截取方式 !!! 这里括号里务必使用单引号 且不需要反斜线！！！代码自己会处理
 
 scvelo_py:
-  run: True
+  run: False
   step1: False
   step2: True
   input_seurat: seurat.h5seurat
