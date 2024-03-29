@@ -1,10 +1,10 @@
-
+set -e
 module load OESingleCell/3.0.d
 Rscript /public/scRNA_works/pipeline/oesinglecell3/exec/sctool \
 -i seurat.h5seurat  \
 -f h5seurat \
 --assay RNA \
--o ./monocle/ \
+-o ./monocle2/ \
 -j 8 \
 --update FALSE \
 monocle \

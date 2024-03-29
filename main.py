@@ -27,7 +27,6 @@ yaml_data = read_yaml_file(config)
 # 创建类的实例，并将字典中的键值对应于类的属性
 p = Project(**yaml_data)
 p.out = config_path
-
 ### run
 # 差异 富集
 if p.diff_anno.run:
@@ -42,5 +41,5 @@ if p.gsva.run:
 if p.modified_cell_type.run:
     single_cell_auto.modified_cell_type_run(obj=p)
 # monocle
-if p.monocle.run:
-    single_cell_auto.monocle_run(obj=p)
+if p.monocle2.run:
+    single_cell_auto.monocle2_run(obj=p)
