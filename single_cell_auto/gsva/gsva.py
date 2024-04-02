@@ -154,7 +154,7 @@ Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \\
     -p 0.05 \\
     -n 10 \\
     -d TRUE \\
-    -o ./GSVA_GO_BP_{t}_{c}/{q}_{u} \\
+    -o ./GSVA_GO_BP_{t}_{c}/{q}_{i} \\
     --cell_heatmap {cell_heatmap}
 
     """)
@@ -168,7 +168,7 @@ Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \\
     -p 0.05 \\
     -n 10 \\
     -d TRUE \\
-    -o ./GSVA_KEGG_{t}_{c}/{q}_{u} \\
+    -o ./GSVA_KEGG_{t}_{c}/{q}_{i} \\
     --cell_heatmap {cell_heatmap}
 
     """)
@@ -182,7 +182,7 @@ Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \\
     -p 0.05 \\
     -n 10 \\
     -d TRUE \\
-    -o ./GSVA_Hallmakr_{t}_{c}/{q}_{u} \\
+    -o ./GSVA_Hallmakr_{t}_{c}/{q}_{i} \\
     --cell_heatmap {cell_heatmap}
 
     """
