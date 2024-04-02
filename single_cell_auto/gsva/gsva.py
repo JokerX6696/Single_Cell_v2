@@ -98,7 +98,7 @@ Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \\
                 t = g.split(":")[1]
                 c = g.split(":")[2]
                 with open(f"{out}/cmd_gsva_step2_{group_by}_{t}_{c}.sh", 'w')as f:
-                    f.write("set -e \n")
+                    f.write("set -e \nmodule purge && module load OESingleCell/2.0.0\n")
                     if ret_GO != "None":
                         f.write(f"""Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_pathway_diffxp.R  \\
 -i {ret_GO} \\
@@ -143,7 +143,7 @@ Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \\
                     t = g.split(":")[1]
                     c = g.split(":")[2]
                     with open(f"{out}/cmd_gsva_step2_{group_by}_{t}_{c}_{sub}_{i}.sh", 'w')as f:
-                        f.write("set -e \n")
+                        f.write("set -e \nmodule purge && module load OESingleCell/2.0.0\n")
                         if ret_GO != "None":
                             f.write(f"""Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_pathway_diffxp.R  \\
     -i {ret_GO} \\
