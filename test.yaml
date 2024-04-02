@@ -42,7 +42,7 @@ cellchat:
 
 # gsva
 gsva:
-  run: True
+  run: False
   species: mouse
   step1: False
   bin_cells: 1000
