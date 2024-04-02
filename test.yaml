@@ -58,6 +58,9 @@ gsva:
   rds2: rds/data_ob_v3.rds
   groups: ['clusters:all:all']
   cell_heatmap: False
+  sub: False
+  q: clusters
+  u:  [1]
 
 # monocle2 拟时序  该模块为第一步，第二步个性化较强 请手动做
 monocle2:

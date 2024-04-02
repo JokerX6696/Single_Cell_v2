@@ -15,6 +15,9 @@ def gsva_run(obj):
     rds2 = obj.gsva.rds2
     cell_heatmap = obj.gsva.cell_heatmap
     groups = obj.gsva.groups
+    sub = obj.gsva.sub
+    q = obj.gsva.q
+    u = obj.gsva.u
     species_all = {
         "mouse":{
             'GO_BP':'/data/database/GSEA_gmt/mouse/v2023/m5.go.bp.v2023.1.Mm.symbols.gmt',
@@ -89,14 +92,15 @@ Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \\
 
 
     if step2:
-        for g in groups:
-            group_by = g.split(":")[0]
-            t = g.split(":")[1]
-            c = g.split(":")[2]
-            with open(f"{out}/cmd_gsva_step2_{group_by}_{t}_{c}.sh", 'w')as f:
-                f.write("set -e \n")
-                if ret_GO != "None":
-                    f.write(f"""Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_pathway_diffxp.R  \\
+        if not sub:
+            for g in groups:
+                group_by = g.split(":")[0]
+                t = g.split(":")[1]
+                c = g.split(":")[2]
+                with open(f"{out}/cmd_gsva_step2_{group_by}_{t}_{c}.sh", 'w')as f:
+                    f.write("set -e \n")
+                    if ret_GO != "None":
+                        f.write(f"""Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_pathway_diffxp.R  \\
 -i {ret_GO} \\
 -v {rds2} \\
 -c {g} \\
@@ -107,8 +111,8 @@ Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \\
 --cell_heatmap {cell_heatmap}
 
 """)
-                if ret_KEGG != "None":
-                    f.write(f"""Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_pathway_diffxp.R  \\
+                    if ret_KEGG != "None":
+                        f.write(f"""Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_pathway_diffxp.R  \\
 -i {ret_KEGG} \\
 -v {rds2} \\
 -c {g} \\
@@ -119,8 +123,8 @@ Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \\
 --cell_heatmap {cell_heatmap}
 
 """)
-                if     ret_Hallmakr != "None":
-                    f.write(f"""Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_pathway_diffxp.R  \\
+                    if  ret_Hallmakr != "None":
+                        f.write(f"""Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_pathway_diffxp.R  \\
 -i {ret_Hallmakr} \\
 -v {rds2} \\
 -c {g} \\
@@ -132,4 +136,54 @@ Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \\
 
 """
 )
-        
+        else:
+            for i in u:
+                for g in groups:
+                    group_by = g.split(":")[0]
+                    t = g.split(":")[1]
+                    c = g.split(":")[2]
+                    with open(f"{out}/cmd_gsva_step2_{group_by}_{t}_{c}_{sub}_{u}.sh", 'w')as f:
+                        f.write("set -e \n")
+                        if ret_GO != "None":
+                            f.write(f"""Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_pathway_diffxp.R  \\
+    -i {ret_GO} \\
+    -v {rds2} \\
+    -c {g} \\
+    -q {q} \\
+    -u {i} \\
+    -p 0.05 \\
+    -n 10 \\
+    -d TRUE \\
+    -o ./GSVA_GO_BP_{group_by}_{t}_{c} \\
+    --cell_heatmap {cell_heatmap}
+
+    """)
+                        if ret_KEGG != "None":
+                            f.write(f"""Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_pathway_diffxp.R  \\
+    -i {ret_KEGG} \\
+    -v {rds2} \\
+    -c {g} \\
+    -q {q} \\
+    -u {i} \\
+    -p 0.05 \\
+    -n 10 \\
+    -d TRUE \\
+    -o ./GSVA_KEGG_{group_by}_{t}_{c} \\
+    --cell_heatmap {cell_heatmap}
+
+    """)
+                        if  ret_Hallmakr != "None":
+                            f.write(f"""Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_pathway_diffxp.R  \\
+    -i {ret_Hallmakr} \\
+    -v {rds2} \\
+    -c {g} \\
+    -q {q} \\
+    -u {i} \\
+    -p 0.05 \\
+    -n 10 \\
+    -d TRUE \\
+    -o ./GSVA_Hallmakr_{group_by}_{t}_{c} \\
+    --cell_heatmap {cell_heatmap}
+
+    """
+    )
