@@ -8,6 +8,10 @@ modified_cell_type:
   newcelltype_file_type: tsv
   Modified_col: clusters
   reduct: umap
+  updata_bynewcelltype: False  # 是否更新后续基于 newcelltype的分析
+  newseurat: seurat.h5seurat
+  type_name: new_celltype
+  species: mouse # human
 
 # 差异分析 富集分析
 diff_anno:
