@@ -5,7 +5,7 @@ def modified_cell_type_run(obj):
     updata = obj.modified_cell_type.updata
     updata_bynewcelltype = obj.modified_cell_type.updata_bynewcelltype  # 是否更新后续基于 newcelltype的分析
     type_name = obj.modified_cell_type.type_name
-    newseurat = type_name = obj.modified_cell_type.newseurat
+    newseurat = obj.modified_cell_type.newseurat
     species = obj.modified_cell_type.species # human
     if updata:
         bl = 'T'
