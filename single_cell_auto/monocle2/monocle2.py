@@ -11,6 +11,7 @@ def monocle2_run(obj):
 
     with open(f"{outsc}/cmd_monocle.sh",'w')as f:
         f.write(f"""set -e
+module purge
 module load OESingleCell/3.0.d
 Rscript /public/scRNA_works/pipeline/oesinglecell3/exec/sctool \\
 -i {seurat}  \\
