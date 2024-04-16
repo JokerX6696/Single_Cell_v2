@@ -1,6 +1,6 @@
 def gsva_run(obj):
     out = obj.out
-    species: obj.gsva.mouse
+    species = obj.gsva.mouse
     step1 = obj.gsva.step1
     rds =  obj.gsva.rds
     GO_BP =  obj.gsva.GO_BP
