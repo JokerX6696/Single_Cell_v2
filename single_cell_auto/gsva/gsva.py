@@ -71,7 +71,7 @@ Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \\
 -s 2  \\
 -S 10000  \\
 -j {cpu} \\
--x  TRUE &
+-x  TRUE 
 """)
         if Hallmakr:
             with open(f"{out}/cmd_gsva_step1_Hallmakr.sh", 'w')as f:
@@ -88,7 +88,7 @@ Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \\
 -s 2  \\
 -S 10000  \\
 -j {cpu} \\
--x  TRUE &
+-x  TRUE 
 """)
                 
 
