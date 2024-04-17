@@ -59,6 +59,7 @@ Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \\
         if KEGG:
             with open(f"{out}/cmd_gsva_step1_KEGG.sh", 'w')as f:
                 f.write(f"""set -e
+module purge && module load OESingleCell/2.0.0
 Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \\
 -i {rds} \\
 -f seurat   \\
@@ -75,6 +76,7 @@ Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \\
         if Hallmakr:
             with open(f"{out}/cmd_gsva_step1_Hallmakr.sh", 'w')as f:
                 f.write(f"""set -e
+module purge && module load OESingleCell/2.0.0
 Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \\
 -i {rds} \\
 -f seurat   \\
