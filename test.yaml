@@ -47,7 +47,7 @@ cellchat:
 # gsva
 gsva:
   run: False
-  species: mouse
+  species: mouse # human rat
   step1: False
   bin_cells: 1000
   rds: data_ob_v3.rds
