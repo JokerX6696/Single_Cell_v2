@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 def sub_clusters_run(obj):
     import os
     out = obj.out
@@ -18,7 +19,7 @@ def sub_clusters_run(obj):
         sjj='/data/database/celltype_refdata/logNorm_rds/immgen.rds'
     else:
         print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-        print('!!!!!!!!!!!!!! 非常见物种, 请在生成的脚本文件中手动填写 marker genen 注释文件!!!!!!!!!!!!!!!!')
+        print('!!!!!!!!!!! 非常见物种, 请在生成的脚本文件中 102 行手动填写 marker gene 注释文件!!!!!!!!!!!')
         print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
         anno = 'unknow'
     # 处理 cell
@@ -175,7 +176,7 @@ Rscript /public/scRNA_works/pipeline/oesinglecell3/exec/sctool \\
 visualize \\
 -l sub_{cell_name}/Marker/top10_markers_for_each_cluster.xls \\
 -g clusters \\
---reduct umap \\
+--reduct {reduct2} \\
 --topn  10  \\
 --topby gene_diff \\
 -m vlnplot,featureplot \\
