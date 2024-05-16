@@ -13,15 +13,16 @@ def sub_clusters_run(obj):
     assay = obj.sub_clusters.assay
     if species == 'human':
         anno = '/data/database/cellranger-refdata/refdata-gex-GRCh38-2020-A/annotation/gene_annotation.xls'
-        sjj='/data/database/celltype_refdata/logNorm_rds/hpca.rds'
+        sjj = '/data/database/celltype_refdata/logNorm_rds/hpca.rds'
     elif species == 'mouse':
-        anno='/data/database/cellranger-refdata/refdata-gex-mm10-2020-A/annotation/gene_annotation.xls'
-        sjj='/data/database/celltype_refdata/logNorm_rds/immgen.rds'
+        anno = '/data/database/cellranger-refdata/refdata-gex-mm10-2020-A/annotation/gene_annotation.xls'
+        sjj = '/data/database/celltype_refdata/logNorm_rds/immgen.rds'
     else:
         print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
         print('!!!!!!!!!!! 非常见物种, 请在生成的脚本文件中 102 行手动填写 marker gene 注释文件!!!!!!!!!!!')
         print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
         anno = 'unknow'
+        sjj = 'unknow'
     # 处理 cell
     for j in cells:
         if type(j) == list:

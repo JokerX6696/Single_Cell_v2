@@ -14,14 +14,14 @@ modified_cell_type:
   species: mouse # human
 # 亚群分析
 sub_clusters:
-  run: True
+  run: False
   seurat: seurat.h5seurat
   reduct1: pca  # mnn harmony
   reduct2: umap  # umap   tsne
   batchid: batchid  # 去批次采用哪一列  部分老师要求使用 sampleid
   resolution: 0.4  # 分辨率 T 细胞设置为 0.6, 0.8
   col_name: new_celltype  # 根据哪一列选择细胞做亚群分析 如果填写 all 则用所有细胞重新做亚群分析
-  cells: [["T_cells","NK"],"B_cells"]  # 哪些细胞类型需要做降维 如果需要将两种细胞放在一起降维 可以写成 [["T_cells","NK"],"B_cells"],这样表示将 "T_cells","NK" 两个合在一起降维
+  cells: ["T_cells","NK","B_cells"]  # 哪些细胞类型需要做降维 如果需要将两种细胞放在一起降维 可以写成 [["T_cells","NK"],"B_cells"],这样表示将 "T_cells","NK" 两个合在一起降维
   species: mouse  # 物种类型 mouse human  其他物种需要手动修改 anno 文件
   assay: RNA  # 采用降维的数据 可用 RNA SCT
 # 差异分析 富集分析
