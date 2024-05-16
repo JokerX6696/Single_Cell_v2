@@ -80,26 +80,26 @@ bclust   \\
 
 """)
             elif reduct2 == 'harmony':
-                f.write(f"""Rscript  /public/scRNA_works/pipeline/oesinglecell3/exec/sctool \
-  -i {seurat}  \
-  -f h5seurat  \
-  -o sub_{cell_name}/Clustering  \
-  -d h5seurat   \
-  --assay {assay}  \
-  --dataslot counts,data,scale.data  \
-  --update F \
-  --predicate  "{col_name} %in% c({cell_type})"  \
-  bclust   \
-  --reduct1 "pca,harmony"  \
-  --reduct2 {reduct2}  \
-  --batchid {batchid}  \
-  --clusteringuse snn  \
-  --resolution {resolution}  \
-  --rerun T \
-  -t 20 \
-  -y 30 \
-  --pointsize  0.5   \
-  --palette customecol2
+                f.write(f"""Rscript  /public/scRNA_works/pipeline/oesinglecell3/exec/sctool \\
+-i {seurat}  \\
+-f h5seurat  \\
+-o sub_{cell_name}/Clustering  \\
+-d h5seurat   \\
+--assay {assay}  \\
+--dataslot counts,data,scale.data  \\
+--update F \\
+--predicate  "{col_name} %in% c({cell_type})"  \\
+bclust   \\
+--reduct1 "pca,harmony"  \\
+--reduct2 {reduct2}  \\
+--batchid {batchid}  \\
+--clusteringuse snn  \\
+--resolution {resolution}  \\
+--rerun T \\
+-t 20 \\
+-y 30 \\
+--pointsize  0.5   \\
+--palette customecol2
 
 """)
             else:
@@ -141,7 +141,7 @@ Rscript /public/scRNA_works/pipeline/oesinglecell3/exec/sctool \\
 -j 10 \\
 findallmarkers \\
 -c 2 \\
--N 10 \\
+-N 10 \\resolution
 -k 1 \\
 -p 0.05 \\
 -s F \\
