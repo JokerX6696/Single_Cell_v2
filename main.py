@@ -46,3 +46,6 @@ if p.monocle2.run:
 # scvelo
 if p.scvelo_py.run:
     single_cell_auto.scvelo_py_run(obj=p)
+# sub_clusters
+if p.sub_clusters.run:
+    single_cell_auto.sub_clusters_run(obj=p)
