@@ -1,4 +1,5 @@
 #!D:/Application/python/python.exe
+# -*- coding: utf-8 -*-
 import yaml
 import os, sys
 import single_cell_auto  # 尝试更加模块化
