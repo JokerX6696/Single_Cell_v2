@@ -19,7 +19,7 @@ def sub_clusters_run(obj):
         sjj = '/data/database/celltype_refdata/logNorm_rds/immgen.rds'
     else:
         print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-        print('!!!!!!!!!!! 非常见物种, 请在生成的脚本文件中 102 行手动填写 marker gene 注释文件!!!!!!!!!!!')
+        print('!!!!!!!!!!! 非常见物种, 请在生成的脚本文件中 105 左右 行手动填写 marker gene 注释文件!!!!!!!!!')
         print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
         anno = 'unknow'
         sjj = 'unknow'
@@ -46,8 +46,10 @@ def sub_clusters_run(obj):
 --assay {assay}  \\
 --dataslot counts,data,scale.data   \\
 --update F   \\
---predicate  "{col_name} %in% c({cell_type})"   \\
-bclust   \\
+""")
+                if j != 'all':
+                    f.write(f'--predicate  "{col_name} %in% c({cell_type})"   \\\n')
+                f.write(f"""bclust   \\
 --reduct1 {reduct1}  \\
 --reduct2 {reduct2}   \\
 --clusteringuse snn  \\
@@ -57,7 +59,7 @@ bclust   \\
 --palette customecol2
 
 """)
-            elif reduct2 == 'mnn':
+            elif reduct1 == 'mnn':
                 f.write(f"""Rscript  /public/scRNA_works/pipeline/oesinglecell3/exec/sctool  \\
 -i  {seurat}  \\
 -f h5seurat  \\
@@ -66,8 +68,10 @@ bclust   \\
 --assay {assay}  \\
 --dataslot counts,data,scale.data   \\
 --update F   \\
---predicate  "{col_name} %in% c({cell_type})"   \\
-bclust   \\
+""")
+                if j != 'all':
+                    f.write(f'--predicate  "{col_name} %in% c({cell_type})"   \\\n')
+                f.write(f"""bclust   \\
 --reduct1 {reduct1} \\
 --batchid {batchid} \\
 --components 10  \\
@@ -79,7 +83,7 @@ bclust   \\
 --palette customecol2
 
 """)
-            elif reduct2 == 'harmony':
+            elif reduct1 == 'harmony':
                 f.write(f"""Rscript  /public/scRNA_works/pipeline/oesinglecell3/exec/sctool \\
 -i {seurat}  \\
 -f h5seurat  \\
@@ -88,8 +92,10 @@ bclust   \\
 --assay {assay}  \\
 --dataslot counts,data,scale.data  \\
 --update F \\
---predicate  "{col_name} %in% c({cell_type})"  \\
-bclust   \\
+""")
+                if j != 'all':
+                    f.write(f'--predicate  "{col_name} %in% c({cell_type})"   \\\n')
+                f.write(f"""bclust   \\
 --reduct1 "pca,harmony"  \\
 --reduct2 {reduct2}  \\
 --batchid {batchid}  \\
@@ -187,6 +193,7 @@ visualize \\
 --dodge F
 
 anno={anno}
+sjj={sjj}
 Rscript /public/scRNA_works/pipeline/oesinglecell3/exec/sctool annotation \\
 -g sub_{cell_name}/Marker/all_markers_for_each_cluster.xls \\
 --anno $anno  # 根据物种修改
@@ -204,7 +211,7 @@ Rscript  /public/scRNA_works/pipeline/oesinglecell3/exec/sctool  \\
 --assay {assay} \\
 --dataslot counts \\
 celltyping \\
--r {sjj} \\
+-r $sjj \\
 --annolevel single \\
 --usecluster F \\
 --demethod classic \\
