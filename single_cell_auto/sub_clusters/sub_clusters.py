@@ -147,7 +147,7 @@ Rscript /public/scRNA_works/pipeline/oesinglecell3/exec/sctool \\
 -j 10 \\
 findallmarkers \\
 -c 2 \\
--N 10 \\resolution
+-N 10 \\
 -k 1 \\
 -p 0.05 \\
 -s F \\
