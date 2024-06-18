@@ -5,3 +5,5 @@ from .gsva.gsva import gsva_run
 from .monocle2.monocle2 import monocle2_run
 from .scvelo_py.scvelo_py import scvelo_py_run
 from .sub_clusters.sub_clusters import sub_clusters_run
+from .inferCNV.inferCNV import inferCNV_run
+from .scenic.scenic import scenic_run

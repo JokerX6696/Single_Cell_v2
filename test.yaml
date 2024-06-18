@@ -87,7 +87,7 @@ monocle2:
   split_group: clusters,sampleid,group
   sel: False  # 是否截取其中一部分细胞
   sel_clusters: new_celltype %in% c('B_cells','T_cells') # 截取方式 !!! 这里括号里务必使用单引号 且不需要反斜线！！！代码自己会处理
-
+# scvelo
 scvelo_py:
   run: False
   step1: False
@@ -99,3 +99,20 @@ scvelo_py:
   groupby: clusters,new_celltype
   reduction: umap
   output: ./output
+
+# scenic
+scenic:
+  run: False
+  step1: True
+  method: top10perTarget # 一般用默认 可选：w0.001,w0.005,top50,top50perTarget,top10perTarget,top5perTarget
+  rds: rds/data_ob_v3.rds # 输入 rds seurat 文件
+  species: mouse # human 仅支持人和小鼠 其他物种请blast
+  ret1_out: ./  # 第一步准备文件输出目录
+  step2: True # 是否进行 RSS CSI 可视化
+  step1_wkdir: ./ # 第一步得到的 int 目录所在目录 这里单独写出来 是为了其他子集做SCENIC方便
+  rds2: rds/data_ob_v3.rds # 可以是子集的 rds
+  col: clusters # 图片展示的组别信息 可以是 celltype
+  clustering_num: 4 # 聚类数
+  RSS_rank_mark: 3 # RSS rank 绘图结果中加标记的top基因数
+  ret2_out: ./  # 可视化输出目录
+  

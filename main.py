@@ -50,3 +50,10 @@ if p.scvelo_py.run:
 # sub_clusters
 if p.sub_clusters.run:
     single_cell_auto.sub_clusters_run(obj=p)
+# SCENIC
+if p.scenic.run:
+    single_cell_auto.scenic_run(obj=p)
+# inferCNV
+if p.inferCNV.run:
+    single_cell_auto.inferCNV_run(obj=p)  
+
