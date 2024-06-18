@@ -116,3 +116,6 @@ scenic:
   RSS_rank_mark: 3 # RSS rank 绘图结果中加标记的top基因数
   ret2_out: ./  # 可视化输出目录
   
+# inferCNV
+inferCNV:
+  run: False

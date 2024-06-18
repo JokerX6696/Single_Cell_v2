@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 def inferCNV_run(obj):
-    import os
     out = obj.out
     seurat = obj.sub_clusters.seurat
     reduct1 = obj.sub_clusters.reduct1
