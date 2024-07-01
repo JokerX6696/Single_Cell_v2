@@ -66,12 +66,11 @@ diff_heatmap \\
 
 rm ./{cell_type_out}-Diffexp/{treat}-vs-{control}/{vs_type}_{treat}-vs-{control}-all_diffexp_genes.xls ./{cell_type_out}-Diffexp/{treat}-vs-{control}/{vs_type}_{treat}-vs-{control}-diff-pval-{p}-FC-{fc}.xls
 
-perl /gpfs/oe-scrna/ziqingzhen/script/enrichment/enrich_go_kegg.pl -infile {cell_type_out}-Diffexp/{treat}-vs-{control}/*-vs-*-diff-*.xls \\
--go_bg {anno}/gene_go.backgroud.xls \\
--category /gpfs/oe-scrna/ziqingzhen/script/enrichment/category.xls \\
--kegg_bg {anno}/gene_kegg.backgroud.xls \\
--outdir {cell_type_out}-Diffexp/{treat}-vs-{control}/enrichment  \\
--shelldir {cell_type_out}-Diffexp/{treat}-vs-{control}/enrichment_sh
+/public/scRNA_works/pipeline/scRNA-seq_further_analysis/enrichwrap.sh \\
+-i {cell_type_out}-Diffexp/{treat}-vs-{control}/*-vs-*-diff-*.xls \\
+-g  {anno} \\
+-o ./diffexp \\
+-d TRUE
                     """)
             else:
                 with open(f'{out}/cmd_{cell_type_out}-{treat}-vs-{control}.diff.sh',"w") as f:
@@ -117,11 +116,12 @@ diff_heatmap \\
 
 rm ./{cell_type_out}-Diffexp/{treat}-vs-{control}/{vs_type}_{treat}-vs-{control}-all_diffexp_genes.xls ./{cell_type_out}-Diffexp/{treat}-vs-{control}/{vs_type}_{treat}-vs-{control}-diff-pval-{p}-FC-{fc}.xls
 
-perl /gpfs/oe-scrna/ziqingzhen/script/enrichment/enrich_go_kegg.pl -infile {cell_type_out}-Diffexp/{treat}-vs-{control}/*-vs-*-diff-*.xls \\
--go_bg {anno}/gene_go.backgroud.xls \\
--category /gpfs/oe-scrna/ziqingzhen/script/enrichment/category.xls \\
--kegg_bg {anno}/gene_kegg.backgroud.xls \\
--outdir {cell_type_out}-Diffexp/{treat}-vs-{control}/enrichment  \\
--shelldir {cell_type_out}-Diffexp/{treat}-vs-{control}/enrichment_sh
+
+
+/public/scRNA_works/pipeline/scRNA-seq_further_analysis/enrichwrap.sh \\
+-i {cell_type_out}-Diffexp/{treat}-vs-{control}/*-vs-*-diff-*.xls \\
+-g  {anno} \\
+-o ./diffexp \\
+-d TRUE
                     """)
             

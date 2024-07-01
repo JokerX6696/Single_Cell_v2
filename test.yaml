@@ -35,9 +35,9 @@ diff_anno:
   fc: 1.5  # 差异大小 foldchange
   p: 0.05  # pvalue 显著性
   vs_type: 'group'  # 对应上方的 treat control 决定了基于metadata中哪一列选择实验组与对照组
-  #anno: "/data/database/cellranger-refdata/refdata-gex-mm10-2020-A/annotation/"   ##mouse
-  anno: "/data/database/cellranger-refdata/refdata-gex-GRCh38-2020-A/annotation/"   #human
-  #anno: "/data/database/cellranger-refdata/refdata-mRatBN7/annotation/"  # rat
+  #anno: "/data/database/cellranger-refdata/refdata-gex-mm10-2020-A/"   ##mouse
+  anno: "/data/database/cellranger-refdata/refdata-gex-GRCh38-2020-A/"   #human
+  #anno: "/data/database/cellranger-refdata/refdata-mRatBN7/"  # rat
   top: 10
 
 
