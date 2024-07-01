@@ -16,12 +16,12 @@ def scvelo_py_run(obj):
 
     if step2:
         if not os.path.exists(f"{out}/dev_fangying"):
-            cmd1=f"cp /public/dev_scRNA/yfang/dev_fangying {out}"
-            os.system(cmd1)
+            # cmd1=f"cp /public/dev_scRNA/yfang/dev_fangying {out}"
+            # os.system(cmd1)
+            pass
         with open(f'{out}/cmd_velo.sh',"w") as f:
             f.write(f"""set -e
-module load git 
-module load ./dev_fangying 
+module load scvelo 
 sctool -i {seurat} -f h5seurat --assay {assay} -j {core} -o {output}  pyscvelo --loom_dir {loom_dir} --groupby {groupby} --reduction {reduction}
 
 """)
