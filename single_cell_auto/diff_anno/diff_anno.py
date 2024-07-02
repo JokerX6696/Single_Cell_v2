@@ -69,7 +69,7 @@ diff_heatmap \\
 /public/scRNA_works/pipeline/scRNA-seq_further_analysis/enrichwrap.sh \\
 -i {cell_type_out}-Diffexp/{treat}-vs-{control}/*-vs-*-diff-*.xls \\
 -g  {anno} \\
--o ./diffexp \\
+-o {cell_type_out}-Diffexp/{treat}-vs-{control}/ \\
 -d TRUE
                     """)
             else:
@@ -121,7 +121,7 @@ diff_heatmap \\
 /public/scRNA_works/pipeline/scRNA-seq_further_analysis/enrichwrap.sh \\
 -i {cell_type_out}-Diffexp/{treat}-vs-{control}/*-vs-*-diff-*.xls \\
 -g  {anno} \\
--o ./diffexp \\
+-o {cell_type_out}-Diffexp/{treat}-vs-{control}/ \\
 -d TRUE
                     """)
             
