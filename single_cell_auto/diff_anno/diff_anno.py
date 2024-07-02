@@ -42,11 +42,11 @@ diffexp     \\
 
 Rscript  /public/scRNA_works/pipeline/oesinglecell3/exec/sctool  annotation \\
 -g ./{cell_type_out}-Diffexp/{treat}-vs-{control}/{vs_type}_{treat}-vs-{control}-all_diffexp_genes.xls \\
---anno {anno}/gene_annotation.xls
+--anno {anno}/annotation/gene_annotation.xls
 
 Rscript   /public/scRNA_works/pipeline/oesinglecell3/exec/sctool  annotation \\
 -g ./{cell_type_out}-Diffexp/{treat}-vs-{control}/{vs_type}_{treat}-vs-{control}-diff-pval-{p}-FC-{fc}.xls \\
---anno {anno}/gene_annotation.xls
+--anno {anno}/annotation/gene_annotation.xls
 
 ### diffexp_heatmap
 Rscript  /public/scRNA_works/pipeline/oesinglecell3/exec/scVis \\
