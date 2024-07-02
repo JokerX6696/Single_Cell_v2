@@ -69,7 +69,7 @@ rm ./{cell_type_out}-Diffexp/{treat}-vs-{control}/{vs_type}_{treat}-vs-{control}
 /public/scRNA_works/pipeline/scRNA-seq_further_analysis/enrichwrap.sh \\
 -i {cell_type_out}-Diffexp/{treat}-vs-{control}/*-vs-*-diff-*.xls \\
 -g  {anno} \\
--o {cell_type_out}-Diffexp/{treat}-vs-{control}/ \\
+-o {cell_type_out}-Diffexp/{treat}-vs-{control}/enrichment \\
 -d TRUE
                     """)
             else:
@@ -121,7 +121,7 @@ rm ./{cell_type_out}-Diffexp/{treat}-vs-{control}/{vs_type}_{treat}-vs-{control}
 /public/scRNA_works/pipeline/scRNA-seq_further_analysis/enrichwrap.sh \\
 -i {cell_type_out}-Diffexp/{treat}-vs-{control}/*-vs-*-diff-*.xls \\
 -g  {anno} \\
--o {cell_type_out}-Diffexp/{treat}-vs-{control}/ \\
+-o {cell_type_out}-Diffexp/{treat}-vs-{control}/enrichment \\
 -d TRUE
                     """)
             
