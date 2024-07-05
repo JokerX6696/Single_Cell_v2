@@ -22,7 +22,7 @@ def diff_anno_run(obj):
 
 
         for cell_type in cell_types:
-            cell_type_out = re.sub(r'\s+|\/|\(|\)|\||\&|\^|\%', '_', cell_type)
+            cell_type_out = re.sub(r'\s+|\/|\(|\)|\||\&|\^|\%|,', '_', cell_type)
             if cell_type == 'all':
                 with open(f'{out}/cmd_{cell_type_out}-{treat}-vs-{control}.diff.sh',"w") as f:
                     f.write(f"""set -e
@@ -73,6 +73,12 @@ rm ./{cell_type_out}-Diffexp/{treat}-vs-{control}/{vs_type}_{treat}-vs-{control}
 -d TRUE
                     """)
             else:
+                if "," in cell_type:
+                    sub_list = "\\'" + cell_type + "\\'"
+                    sub_list = sub_list.replace(",","\\',\\'")
+
+                else:
+                    sub_list = "\\'" + cell_type + "\\'"
                 with open(f'{out}/cmd_{cell_type_out}-{treat}-vs-{control}.diff.sh',"w") as f:
                     f.write(f"""set -e
 module load OESingleCell/3.0.d
@@ -83,7 +89,7 @@ Rscript  /public/scRNA_works/pipeline/oesinglecell3/exec/sctool  \\
 --assay RNA     \\
 --dataslot data,counts     \\
 -j 10  \\
---predicate "{analysis_type} %in% c(\\'{cell_type}\\')" \\
+--predicate "{analysis_type} %in% c({sub_list})" \\
 diffexp     \\
 -c {vs_type}:{treat}:{control}     \\
 -k {fc}     \\
