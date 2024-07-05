@@ -105,6 +105,7 @@ Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \\
                         f.write(f"""Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_pathway_diffxp.R  \\
 -i {ret_GO} \\
 -v {rds2} \\
+-g {species_all[species]['GO_BP']}  \\
 -c {g} \\
 -p 0.05 \\
 -n 10 \\
@@ -117,6 +118,7 @@ Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \\
                         f.write(f"""Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_pathway_diffxp.R  \\
 -i {ret_KEGG} \\
 -v {rds2} \\
+-g {species_all[species]['KEGG']}  \\
 -c {g} \\
 -p 0.05 \\
 -n 10 \\
@@ -129,6 +131,7 @@ Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \\
                         f.write(f"""Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_pathway_diffxp.R  \\
 -i {ret_Hallmakr} \\
 -v {rds2} \\
+-g {species_all[species]['Hallmakr']}  \\
 -c {g} \\
 -p 0.05 \\
 -n 10 \\
@@ -150,6 +153,7 @@ Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \\
                             f.write(f"""Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_pathway_diffxp.R  \\
     -i {ret_GO} \\
     -v {rds2} \\
+    -g {species_all[species]['GO_BP']}  \\
     -c {g} \\
     -q {q} \\
     -u {i} \\
@@ -164,6 +168,7 @@ Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \\
                             f.write(f"""Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_pathway_diffxp.R  \\
     -i {ret_KEGG} \\
     -v {rds2} \\
+    -g {species_all[species]['KEGG']} \\
     -c {g} \\
     -q {q} \\
     -u {i} \\
@@ -178,6 +183,7 @@ Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_enrich.R \\
                             f.write(f"""Rscript /home/luyao/10X_scRNAseq_v3/src/Enrichment/GSVA_pathway_diffxp.R  \\
     -i {ret_Hallmakr} \\
     -v {rds2} \\
+    -g {species_all[species]['Hallmakr']} \\
     -c {g} \\
     -q {q} \\
     -u {i} \\
