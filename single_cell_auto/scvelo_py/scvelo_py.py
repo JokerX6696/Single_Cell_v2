@@ -21,6 +21,7 @@ def scvelo_py_run(obj):
             pass
         with open(f'{out}/cmd_velo.sh',"w") as f:
             f.write(f"""set -e
+module load git
 module load scvelo 
 sctool -i {seurat} -f h5seurat --assay {assay} -j {core} -o {output}  pyscvelo --loom_dir {loom_dir} --groupby {groupby} --reduction {reduction}
 
