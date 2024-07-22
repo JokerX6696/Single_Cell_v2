@@ -67,8 +67,8 @@ gsva:
   Hallmakr: False
   cpu: 4
   step2: True
-  ret_GO: "/gpfs/oe-scrna/zhengfuxing/Project/scRNA/DZOE2023120213_Mouse/20240227/4.GSVA/GSVA_GO_BP/GSVA_enrichment_results.xls"
-  ret_KEGG: "/gpfs/oe-scrna/zhengfuxing/Project/scRNA/DZOE2023120213_Mouse/20240227/4.GSVA/GSVA_KEGG/GSVA_enrichment_results.xls"
+  ret_GO: "GSVA_GO_BP_step1/GSVA_enrichment_results.xls"
+  ret_KEGG: "GSVA_KEGG_step1/GSVA_enrichment_results.xls"
   ret_Hallmakr: None  #  如果为 None 则不会执行 对应数据框的 step2
   rds2: rds/data_ob_v3.rds
   groups: ['clusters:all:all']
