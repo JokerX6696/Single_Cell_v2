@@ -129,5 +129,14 @@ rm ./{cell_type_out}-Diffexp/{treat}-vs-{control}/{vs_type}_{treat}-vs-{control}
 -g  {anno} \\
 -o {cell_type_out}-Diffexp/{treat}-vs-{control}/enrichment \\
 -d TRUE
+
+
+
+Rscript /gpfs/oe-scrna/pipeline/scRNA-seq_further_analysis/volcanoplot/volcano.r \\
+    -i ./{cell_type_out}-Diffexp/{treat}-vs-{control}/{vs_type}_{treat}-vs-{control}-all_diffexp_genes_anno.xls \\
+    -p {p} \\
+    -f {fc} \\
+    -o ./{cell_type_out}-Diffexp/{treat}-vs-{control}/
+
                     """)
             
